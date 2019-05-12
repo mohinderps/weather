@@ -19,9 +19,9 @@ if(args.length === 0 || args.length > 1) {
 const splitArgs = args[0].split(',')
 const locations = splitArgs.map(trimLocation)
 
-const fetchWeather = location => axios.get(weatherAPI(location)).then(parseTemperature).then(displayTemperature);
+const fetchWeather = location => axios.get(weatherAPI(location)).then(parseTemperature).then(displayTemperature)
 
-const fetchTime = location => axios.get(timezoneAPI(location)).then(parseTime).then(displayTime);
+const fetchTime = location => axios.get(timezoneAPI(location)).then(parseTime).then(displayTime)
 
 Promise.all(locations.map(val => fetchWeather(val)))
   .then(res => console.log(`Temperature -> ${res.join(', ')}`))
