@@ -1,15 +1,17 @@
-const axios = require('axios')
-const {timezoneAPI, weatherAPI} = require('./apiUrls')
-
 const trimLocation = location => location.trim()
 
-const fetchWeatherAtLocation = location => axios.get(weatherAPI(location))
+const displayTemperature = temperature => `${temperature} degrees celsius`
 
-const fetchTimeAtLocation = location => axios.get(timezoneAPI(location))
+const displayTime = time => `${time.split(' ')[1]}`
 
+const parseTemperature = ({data: temperatureData}) => temperatureData.data.current_condition[0].temp_C
+
+const parseTime = ({data: timeData}) => timeData.data.time_zone[0].localtime
 
 module.exports = {
   trimLocation,
-  fetchWeatherAtLocation,
-  fetchTimeAtLocation
+  displayTemperature,
+  displayTime,
+  parseTemperature,
+  parseTime
 }
