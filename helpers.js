@@ -1,6 +1,10 @@
 const axios = require('axios')
 const {weatherAPIForLocationName, weatherAPIForLocationZip} = require('./apiUrls')
 
+const trimData = val => val.trim()
+
+const roundData = val => val.round();
+
 const isZipCode = val => {
   const reg = /^[1-9].*/
   return reg.test(val)
@@ -18,5 +22,6 @@ const fetchWeather = val => {
 }
 
 module.exports = {
+  trimData,
   fetchWeather
 }
