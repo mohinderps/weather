@@ -12,7 +12,7 @@ const args = process.argv.slice(2)
 
 if(args.length === 0 || args.length > 1) {
   console.log('No arguments provided')
-  console.log('Usage: ./weather \'New York\', 10001, Tokyo')
+  console.log('Usage: ./weather-macos \'New York, Tokyo, 10001\'')
   return
 }
 
